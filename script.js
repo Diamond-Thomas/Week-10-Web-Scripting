@@ -11,6 +11,9 @@ class Pet{
 
     feed(){
         this.hunger -= 10;
+        if (this.hunger < 0){
+            this.hunger = 0;
+        }
     }
 
 }
@@ -38,6 +41,10 @@ function addPet() {
     const petName = document.getElementById("pet-name").value;
     const newPet = new Pet(petName, "pet");
 
+    if (petName === "") {
+    return;
+    }
+
     //get div id 
     const sanctuary = document.getElementById("sanctuary");
 
@@ -61,22 +68,18 @@ function addPet() {
         petHunger.textContent = newPet.hunger;
     });
 
-    const hungerDisplay = document.getElementById("Hunger");
-    hungerDisplay.textContent = Dog.hunger;
-
-    const foodButton = document.getElementById("feed-button");
-
-   foodButton.addEventListener("click", () => {
-    Dog.feed();
-    hungerDisplay.textContent = Dog.hunger;
-    });
-    
 
     //putting the elements together to form the card
     petCard.appendChild(petHeading);
     petCard.appendChild(petHunger);
     petCard.appendChild(petFeedButton);
 
+
     //add to div id sanctuary
     sanctuary.appendChild(petCard);
+
 }
+
+const addPetButton = document.getElementById("add-pet-button");
+
+addPetButton.addEventListener("click", addPet);
