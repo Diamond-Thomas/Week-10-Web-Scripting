@@ -1,0 +1,3 @@
+### What did you accomplish in this phase? In your own words, what is the difference between the Pet class itself and an “instance” of that class?
+
+I this phase I made a class and made a methodf and constructor for that class that take info in and prints something out based on the values it took in. The difference between the pet class itself and and instance of the class is that the class is like a blue print while an insance is an actual object created based on that object.
